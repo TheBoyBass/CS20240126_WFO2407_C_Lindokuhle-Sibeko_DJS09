@@ -1,13 +1,10 @@
-import { showReviewTotal, populateUser } from './utils.js'
-let isOpen: boolean
+// Number Types mini-challenge 10 10.2
+// Write a function that will only accept numbers and attend to 
+// all TypeScript weakness flags.
+// : number
+const reviewTotalDisplay = document.querySelector('#reviews')
 
-// Reviews
-const reviews : { 
-    name: string; 
-    stars: number; 
-    loyaltyUser: boolean; 
-    date: string
-    }[] = [
+const reviews = [
     {
         name: 'Sheia',
         stars: 5,
@@ -27,25 +24,3 @@ const reviews : {
         date: '27-03-2021'
     },
 ]
-
-// User
-const you: {
-    firstName: string;
-    lastName: string;
-    isReturning: boolean; 
-    age: number;
-    stayedAt: string[]
-} = {
-    firstName: 'Bobby',
-    lastName: 'Brown',
-    isReturning: true,
-    age: 35,
-    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
-}
-
-
-
-// Functions
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
-
-populateUser(you.isReturning, you.firstName)

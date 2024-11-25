@@ -23,7 +23,7 @@ var reviews = [
     },
 ];
 function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = isLoyalty ? '⭐' : '';
+    var iconDisplay = isLoyalty ? '🏅' : '';
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
@@ -35,7 +35,7 @@ var you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 function populateUser(isReturning, userName) {
-    if (isReturning) {
+    if (isReturning == true) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;

@@ -6,7 +6,7 @@ var reviewTotalDisplay = document.querySelector('#reviews');
 var returningUserDisplay = document.querySelector('#returning-user');
 var userNameDisplay = document.querySelector('#user');
 function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = isLoyalty ? '⭐' : '';
+    var iconDisplay = isLoyalty ? '🏅' : '';
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 function populateUser(isReturning, userName) {

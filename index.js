@@ -23,13 +23,16 @@ var reviews = [
     },
 ];
 function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = isLoyalty ? '🏅' : '';
+    var iconDisplay = isLoyalty ? '⭐' : '';
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 var you = {
-    userName: 'Bobby',
+    firstName: 'Bobby',
+    lastName: 'Brown',
     isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
 function populateUser(isReturning, userName) {
     if (isReturning) {
@@ -37,4 +40,4 @@ function populateUser(isReturning, userName) {
     }
     userNameDisplay.innerHTML = userName;
 }
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstName);

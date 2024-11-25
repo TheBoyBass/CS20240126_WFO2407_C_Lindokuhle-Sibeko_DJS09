@@ -1,7 +1,8 @@
-var returningUserDisplay = document.querySelector('#returning-user');
-var userNameDisplay = document.querySelector('#user');
-var reviewTotalDisplay = document.querySelector('#reviews');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = require("./utils");
 var isOpen;
+// Reviews
 var reviews = [
     {
         name: 'Sheia',
@@ -22,11 +23,7 @@ var reviews = [
         date: '27-03-2021'
     },
 ];
-function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = isLoyalty ? '🏅' : '';
-    reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
-}
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+// User
 var you = {
     firstName: 'Bobby',
     lastName: 'Brown',
@@ -34,10 +31,6 @@ var you = {
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-function populateUser(isReturning, userName) {
-    if (isReturning == true) {
-        returningUserDisplay.innerHTML = 'back';
-    }
-    userNameDisplay.innerHTML = userName;
-}
-populateUser(you.isReturning, you.firstName);
+// Functions
+(0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, utils_1.populateUser)(you.isReturning, you.firstName);

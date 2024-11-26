@@ -55,7 +55,7 @@ var you = {
 // Array of Properties
 var properties = [
     {
-        image: 'images/colombia-property.jpg',
+        image: './images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -64,11 +64,11 @@ var properties = [
             code: 45632,
             country: 'Colombia'
         },
-        contact: [+1123495082908, 'marywinkle@gmail.com'],
+        contact: [+112343823978921, 'marywinkle@gmail.com'],
         isAvailable: true
     },
     {
-        image: 'images/poland-property.jpg',
+        image: './images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
@@ -77,11 +77,11 @@ var properties = [
             code: 343903,
             country: 'Poland'
         },
-        contact: [+1123495082908, 'garydavis@hotmail.com'],
+        contact: [+1298239028490830, 'garydavis@hotmail.com'],
         isAvailable: false
     },
     {
-        image: 'images/london-property.jpg',
+        image: './images/london-property.jpg',
         title: 'London Flat',
         price: 25,
         location: {
@@ -90,8 +90,21 @@ var properties = [
             code: 'SW4 5XW',
             country: 'United Kingdom',
         },
-        contact: [+1123495082908, 'andyluger@aol.com'],
+        contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true
+    },
+    {
+        image: './images/malaysian-hotel.jpg',
+        title: 'Malia Hotel',
+        price: 35,
+        location: {
+            firstLine: 'Room 4',
+            city: 'Malia',
+            code: 45334,
+            country: 'Malaysia'
+        },
+        contact: [+60349822083, 'lee34@gmail.com'],
+        isAvailable: false
     }
 ];
 // Functions
@@ -123,7 +136,7 @@ function addReviews(array) {
     }
 }
 button.addEventListener('click', function () { return addReviews(reviews); });
-var currentLocation = ['Johanesburg', '11:35', 25];
+var currentLocation = ['London', '11.03', 17];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';
 // Classes
 var MainProperty = /** @class */ (function () {
@@ -134,7 +147,7 @@ var MainProperty = /** @class */ (function () {
     }
     return MainProperty;
 }());
-var yourMainProperty = new MainProperty('images/italian-property.jpg', 'Italian House', [{
+var yourMainProperty = new MainProperty('./images/italian-property.jpg', 'Italian House', [{
         name: 'Olive',
         stars: 5,
         loyaltyUser: enums_1.LoyaltyUser.GOLD_USER,

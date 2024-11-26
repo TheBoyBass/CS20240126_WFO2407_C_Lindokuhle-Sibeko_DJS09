@@ -8,23 +8,13 @@ exports.getTopTwoReviews = getTopTwoReviews;
 var reviewTotalDisplay = document.querySelector('#reviews');
 var returningUserDisplay = document.querySelector('#returning-user');
 var userNameDisplay = document.querySelector('#user');
-var Permissions;
-(function (Permissions) {
-    Permissions["ADMIN"] = "ADMIN";
-    Permissions["READ_ONLY"] = "READ_ONLY";
-})(Permissions || (Permissions = {}));
-var LoyaltyUser;
-(function (LoyaltyUser) {
-    LoyaltyUser["GOLD_USER"] = "GOLD_USER";
-    LoyaltyUser["SILVER_USER"] = "SILVER_USER";
-    LoyaltyUser["BRONZE_USER"] = "BRONZE_USER";
-})(LoyaltyUser || (LoyaltyUser = {}));
+var enums_1 = require("./enums");
 function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = LoyaltyUser.GOLD_USER ? '🏅' : '';
+    var iconDisplay = enums_1.LoyaltyUser.GOLD_USER ? '🏅' : '';
     reviewTotalDisplay.innerHTML = value.toString() + ' review' + makeMultiple(value) + ' | last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 function populateUser(isReturning, userName) {
-    if (isReturning == true) {
+    if (isReturning) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;

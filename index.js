@@ -23,9 +23,11 @@ var reviews = [
         name: 'Omar',
         stars: 4,
         loyaltyUser: enums_1.LoyaltyUser.SILVER_USER,
-        date: '27-03-2021'
+        date: '27-03-2021',
+        description: 'Great hosts, location was a bit further than said',
     },
 ];
+// User
 var you = {
     firstName: 'Bobby',
     lastName: 'Brown',

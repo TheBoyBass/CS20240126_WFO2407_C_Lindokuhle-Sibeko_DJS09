@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = require("./utils");
 var enums_1 = require("./enums");
+var classes_1 = require("./classes");
 var propertyContainer = document.querySelector('.properties');
 var reviewContainer = document.querySelector('.reviews');
 var container = document.querySelector('.container');
@@ -40,7 +41,7 @@ var you = {
 // Array of Properties
 var properties = [
     {
-        image: './images/colombia-property.jpg',
+        image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -53,7 +54,7 @@ var properties = [
         isAvailable: true
     },
     {
-        image: './images/poland-property.jpg',
+        image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
@@ -66,7 +67,7 @@ var properties = [
         isAvailable: false
     },
     {
-        image: './images/london-property.jpg',
+        image: 'images/london-property.jpg',
         title: 'London Flat',
         price: 25,
         location: {
@@ -79,7 +80,7 @@ var properties = [
         isAvailable: true
     },
     {
-        image: './images/malaysian-hotel.jpg',
+        image: 'images/malaysian-hotel.jpeg',
         title: 'Malia Hotel',
         price: 35,
         location: {
@@ -123,16 +124,7 @@ function addReviews(array) {
 button.addEventListener('click', function () { return addReviews(reviews); });
 var currentLocation = ['London', '11.03', 17];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';
-// Classes
-var MainProperty = /** @class */ (function () {
-    function MainProperty(src, title, reviews) {
-        this.src = src;
-        this.title = title;
-        this.reviews = reviews;
-    }
-    return MainProperty;
-}());
-var yourMainProperty = new MainProperty('./images/italian-property.jpg', 'Italian House', [{
+var yourMainProperty = new classes_1.default('images/italian-property.jpg', 'Italian House', [{
         name: 'Olive',
         stars: 5,
         loyaltyUser: enums_1.LoyaltyUser.GOLD_USER,

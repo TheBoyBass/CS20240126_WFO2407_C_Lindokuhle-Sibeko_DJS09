@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // DOM Elements
 var propertyContainer = document.querySelector('.properties');
-var utils_1 = require("./utils");
+var utils_js_1 = require("./utils.js");
 var isOpen;
 // Reviews
 var reviews = [
@@ -45,7 +45,7 @@ var properties = [
             code: 45632,
             country: 'Colombia'
         },
-        contact: 'marywinkle@gmail.com',
+        contact: [+1123495082908, 'marywinkle@gmail.com'],
         isAvailable: true
     },
     {
@@ -58,7 +58,7 @@ var properties = [
             code: 343903,
             country: 'Poland'
         },
-        contact: 'garydavis@hotmail.com',
+        contact: [+1123495082908, 'garydavis@hotmail.com'],
         isAvailable: false
     },
     {
@@ -71,14 +71,14 @@ var properties = [
             code: 35433,
             country: 'United Kingdom',
         },
-        contact: 'andyluger@aol.com',
+        contact: [+1123495082908, 'andyluger@aol.com'],
         isAvailable: true
     }
 ];
 // Functions
-(0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-(0, utils_1.populateUser)(you.isReturning, you.firstName);
-//Add the properties
+(0, utils_js_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, utils_js_1.populateUser)(you.isReturning, you.firstName);
+// Add the properties
 for (var i = 0; i < properties.length; i++) {
     var card = document.createElement('div');
     card.classList.add('card');

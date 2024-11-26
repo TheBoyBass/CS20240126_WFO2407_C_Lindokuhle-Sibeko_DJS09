@@ -1,6 +1,5 @@
-
-// DOM Elements
 const propertyContainer = document.querySelector('.properties')
+const footer = document.querySelector('.footer')
 
 import { showReviewTotal, populateUser } from './utils'
 let isOpen: boolean
@@ -102,6 +101,7 @@ const properties : {
     }
 ]
 
+
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
@@ -118,3 +118,5 @@ for (let i = 0; i < properties.length; i++) {
     propertyContainer.appendChild(card)
 }
 
+let currentLocation
+footer.innerHTML = currentLocation

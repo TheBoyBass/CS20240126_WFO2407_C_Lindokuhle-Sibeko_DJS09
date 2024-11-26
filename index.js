@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// DOM Elements
 var propertyContainer = document.querySelector('.properties');
-var utils_js_1 = require("./utils.js");
+var footer = document.querySelector('.footer');
+var utils_1 = require("./utils");
 var isOpen;
 // Reviews
 var reviews = [
@@ -76,8 +76,8 @@ var properties = [
     }
 ];
 // Functions
-(0, utils_js_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-(0, utils_js_1.populateUser)(you.isReturning, you.firstName);
+(0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, utils_1.populateUser)(you.isReturning, you.firstName);
 // Add the properties
 for (var i = 0; i < properties.length; i++) {
     var card = document.createElement('div');
@@ -88,3 +88,5 @@ for (var i = 0; i < properties.length; i++) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
 }
+var currentLocation;
+footer.innerHTML = currentLocation;

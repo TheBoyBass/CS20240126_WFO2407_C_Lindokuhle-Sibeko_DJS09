@@ -8,21 +8,6 @@ var container = document.querySelector('.container');
 var button = document.querySelector('button');
 var footer = document.querySelector('.footer');
 var isLoggedIn;
-// enum Permissions {
-//     ADMIN = 'ADMIN', 
-//     READ_ONLY = 'READ_ONLY'
-// }
-// enum LoyaltyUser {
-//     GOLD_USER = 'GOLD_USER',
-//     SILVER_USER = 'SILVER_USER',
-//     BRONZE_USER = 'BRONZE_USER'
-// }
-// interface Review {
-//     name: string; 
-//     stars: number; 
-//     loyaltyUser: LoyaltyUser; 
-//     date: string;   
-// }
 // Reviews
 var reviews = [
     {

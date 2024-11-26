@@ -118,5 +118,5 @@ for (let i = 0; i < properties.length; i++) {
     propertyContainer.appendChild(card)
 }
 
-let currentLocation
-footer.innerHTML = currentLocation
+let currentLocation: [string, string, number] = ['Johanesburg', '11:35', 25]
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'

@@ -1,12 +1,13 @@
-import { showReviewTotal, populateUser } from './utils'
+import { showReviewTotal, populateUser, showDetails } from './utils'
 import { Permissions , LoyaltyUser } from './enums'
+import { Price, Country } from './types'
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
 let isLoggedIn: boolean
 
 // Reviews
-const reviews : any[]= [
+const reviews : any[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -37,7 +38,6 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-
 // Array of Properties
 const properties : {
     image: string;
@@ -47,9 +47,9 @@ const properties : {
         firstLine: string;
         city: string;
         code: number;
-        country: string;
+        country: Country;
     };
-    contact: [number, string];
+    contact: [ number, string ];
     isAvailable: boolean;
 }[] = [
     {
@@ -98,18 +98,6 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
 
-let authorityStatus : any
-
-isLoggedIn = false
-
-function showDetails(authorityStatus: boolean | Permissions, element : HTMLDivElement, price: number) {
-   if (authorityStatus) {
-       const priceDisplay = document.createElement('div')
-       priceDisplay.innerHTML = price.toString() + '/night'
-       element.appendChild(priceDisplay)
-   }
-}
-
 // Add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
@@ -118,8 +106,8 @@ for (let i = 0; i < properties.length; i++) {
     const image = document.createElement('img')
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
-    propertyContainer.appendChild(card)
     showDetails(you.permissions, card, properties[i].price)
+    propertyContainer.appendChild(card)
 }
 
 let currentLocation: [string, string, number] = ['Johanesburg', '11:35', 25]

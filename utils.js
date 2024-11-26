@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.showReviewTotal = showReviewTotal;
 exports.populateUser = populateUser;
+exports.showDetails = showDetails;
 var reviewTotalDisplay = document.querySelector('#reviews');
 var returningUserDisplay = document.querySelector('#returning-user');
 var userNameDisplay = document.querySelector('#user');
@@ -11,8 +12,15 @@ function showReviewTotal(value, reviewer, isLoyalty) {
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 function populateUser(isReturning, userName) {
-    if (isReturning == true) {
+    if (isReturning) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;
+}
+function showDetails(value, element, price) {
+    if (value) {
+        var priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '/night';
+        element.appendChild(priceDisplay);
+    }
 }

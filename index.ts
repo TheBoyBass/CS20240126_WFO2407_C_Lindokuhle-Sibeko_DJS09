@@ -1,4 +1,7 @@
 
+// DOM Elements
+const propertyContainer = document.querySelector('.properties')
+
 import { showReviewTotal, populateUser } from './utils'
 let isOpen: boolean
 
@@ -44,7 +47,7 @@ const you: {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-//Properties
+// Array of Properties
 const properties : {
     image: string;
     title: string;
@@ -59,7 +62,7 @@ const properties : {
     isAvailable: boolean;
 }[] = [
     {
-        image: '',
+        image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -72,7 +75,7 @@ const properties : {
         isAvailable: true  
     },
     {
-        image: '',
+        image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 34,
         location: {
@@ -85,7 +88,7 @@ const properties : {
         isAvailable: false 
     },
     {
-        image: '',
+        image: 'images/london-property.jpg',
         title: 'London Flat',
         price: 23,
         location: {
@@ -104,3 +107,13 @@ showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
 
+//Add the properties
+for (let i = 0; i < properties.length; i++) {
+    const card = document.createElement('div')
+    card.classList.add('card')
+    card.innerHTML = properties[i].title
+    const image = document.createElement('img')
+    image.setAttribute('src', properties[i].image)
+    card.appendChild(image)
+    propertyContainer.appendChild(card)
+}

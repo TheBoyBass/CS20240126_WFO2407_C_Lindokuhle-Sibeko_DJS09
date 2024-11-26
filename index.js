@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// DOM Elements
+var propertyContainer = document.querySelector('.properties');
 var utils_1 = require("./utils");
 var isOpen;
 // Reviews
@@ -31,10 +33,10 @@ var you = {
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 };
-//Properties
+// Array of Properties
 var properties = [
     {
-        image: '',
+        image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -47,7 +49,7 @@ var properties = [
         isAvailable: true
     },
     {
-        image: '',
+        image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 34,
         location: {
@@ -60,7 +62,7 @@ var properties = [
         isAvailable: false
     },
     {
-        image: '',
+        image: 'images/london-property.jpg',
         title: 'London Flat',
         price: 23,
         location: {
@@ -76,3 +78,13 @@ var properties = [
 // Functions
 (0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 (0, utils_1.populateUser)(you.isReturning, you.firstName);
+//Add the properties
+for (var i = 0; i < properties.length; i++) {
+    var card = document.createElement('div');
+    card.classList.add('card');
+    card.innerHTML = properties[i].title;
+    var image = document.createElement('img');
+    image.setAttribute('src', properties[i].image);
+    card.appendChild(image);
+    propertyContainer.appendChild(card);
+}

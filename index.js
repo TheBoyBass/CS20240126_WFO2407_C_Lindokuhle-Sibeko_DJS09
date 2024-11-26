@@ -1,36 +1,48 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = require("./utils");
-var enums_1 = require("./enums");
 var propertyContainer = document.querySelector('.properties');
+var reviewContainer = document.querySelector('.reviews');
+var container = document.querySelector('.container');
+var button = document.querySelector('button');
 var footer = document.querySelector('.footer');
 var isLoggedIn;
+var Permissions;
+(function (Permissions) {
+    Permissions["ADMIN"] = "ADMIN";
+    Permissions["READ_ONLY"] = "READ_ONLY";
+})(Permissions || (Permissions = {}));
+var LoyaltyUser;
+(function (LoyaltyUser) {
+    LoyaltyUser["GOLD_USER"] = "GOLD_USER";
+    LoyaltyUser["SILVER_USER"] = "SILVER_USER";
+    LoyaltyUser["BRONZE_USER"] = "BRONZE_USER";
+})(LoyaltyUser || (LoyaltyUser = {}));
 // Reviews
 var reviews = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: enums_1.LoyaltyUser.GOLD_USER,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: enums_1.LoyaltyUser.BRONZE_USER,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: enums_1.LoyaltyUser.SILVER_USER,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said.'
     },
 ];
 var you = {
     firstName: 'Bobby',
     lastName: 'Brown',
-    permissions: enums_1.Permissions.ADMIN,
+    permissions: Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
@@ -91,5 +103,20 @@ for (var i = 0; i < properties.length; i++) {
     (0, utils_1.showDetails)(you.permissions, card, properties[i].price);
     propertyContainer.appendChild(card);
 }
+var count = 0;
+function addReviews(array) {
+    if (!count) {
+        count++;
+        var topTwo = (0, utils_1.getTopTwoReviews)(array);
+        for (var i = 0; i < topTwo.length; i++) {
+            var card = document.createElement('div');
+            card.classList.add('review-card');
+            card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name;
+            reviewContainer.appendChild(card);
+        }
+        container.removeChild(button);
+    }
+}
+button.addEventListener('click', function () { return addReviews(reviews); });
 var currentLocation = ['Johanesburg', '11:35', 25];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';

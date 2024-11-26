@@ -4,16 +4,27 @@ exports.showReviewTotal = showReviewTotal;
 exports.populateUser = populateUser;
 exports.showDetails = showDetails;
 exports.makeMultiple = makeMultiple;
+exports.getTopTwoReviews = getTopTwoReviews;
 var reviewTotalDisplay = document.querySelector('#reviews');
 var returningUserDisplay = document.querySelector('#returning-user');
 var userNameDisplay = document.querySelector('#user');
-var enums_1 = require("./enums");
+var Permissions;
+(function (Permissions) {
+    Permissions["ADMIN"] = "ADMIN";
+    Permissions["READ_ONLY"] = "READ_ONLY";
+})(Permissions || (Permissions = {}));
+var LoyaltyUser;
+(function (LoyaltyUser) {
+    LoyaltyUser["GOLD_USER"] = "GOLD_USER";
+    LoyaltyUser["SILVER_USER"] = "SILVER_USER";
+    LoyaltyUser["BRONZE_USER"] = "BRONZE_USER";
+})(LoyaltyUser || (LoyaltyUser = {}));
 function showReviewTotal(value, reviewer, isLoyalty) {
-    var iconDisplay = enums_1.LoyaltyUser.GOLD_USER ? '🏅' : '';
-    reviewTotalDisplay.innerHTML = value.toString() + ' Review' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
+    var iconDisplay = LoyaltyUser.GOLD_USER ? '🏅' : '';
+    reviewTotalDisplay.innerHTML = value.toString() + ' review' + makeMultiple(value) + ' | last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 function populateUser(isReturning, userName) {
-    if (isReturning) {
+    if (isReturning == true) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;
@@ -31,4 +42,8 @@ function makeMultiple(value) {
     }
     else
         return '';
+}
+function getTopTwoReviews(reviews) {
+    var sortedReviews = reviews.sort(function (a, b) { return b.stars - a.stars; });
+    return sortedReviews.slice(0, 2);
 }

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.showReviewTotal = showReviewTotal;
 exports.populateUser = populateUser;
 exports.showDetails = showDetails;
+exports.makeMultiple = makeMultiple;
 var reviewTotalDisplay = document.querySelector('#reviews');
 var returningUserDisplay = document.querySelector('#returning-user');
 var userNameDisplay = document.querySelector('#user');
@@ -22,5 +23,13 @@ function showDetails(value, element, price) {
         var priceDisplay = document.createElement('div');
         priceDisplay.innerHTML = price.toString() + '/night';
         element.appendChild(priceDisplay);
+    }
+}
+function add(firstValue, secondValue) {
+    return firstValue + secondValue;
+}
+function makeMultiple(value) {
+    if (value > 1) {
+        return 's';
     }
 }

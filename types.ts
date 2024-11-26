@@ -1,3 +1,3 @@
-// type Alias
-export type Price = 45 | 30 | 25
+// Type Aliases
+export type Price = 25 | 30 | 45
 export type Country = 'Colombia' | 'Poland' | 'United Kingdom'

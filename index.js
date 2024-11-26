@@ -4,7 +4,7 @@ var utils_1 = require("./utils");
 var enums_1 = require("./enums");
 var propertyContainer = document.querySelector('.properties');
 var footer = document.querySelector('.footer');
-var isOpen;
+var isLoggedIn;
 // Reviews
 var reviews = [
     {
@@ -24,10 +24,9 @@ var reviews = [
         stars: 4,
         loyaltyUser: enums_1.LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said',
+        description: 'Great hosts, location was a bit further than said.'
     },
 ];
-// User
 var you = {
     firstName: 'Bobby',
     lastName: 'Brown',
@@ -81,6 +80,15 @@ var properties = [
 // Functions
 (0, utils_1.showReviewTotal)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 (0, utils_1.populateUser)(you.isReturning, you.firstName);
+var authorityStatus;
+isLoggedIn = false;
+function showDetails(authorityStatus, element, price) {
+    if (authorityStatus) {
+        var priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '/night';
+        element.appendChild(priceDisplay);
+    }
+}
 // Add the properties
 for (var i = 0; i < properties.length; i++) {
     var card = document.createElement('div');
@@ -90,6 +98,7 @@ for (var i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image);
     card.appendChild(image);
     propertyContainer.appendChild(card);
+    showDetails(you.permissions, card, properties[i].price);
 }
 var currentLocation = ['Johanesburg', '11:35', 25];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';

@@ -1,34 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = require("./utils");
+var enums_1 = require("./enums");
 var propertyContainer = document.querySelector('.properties');
 var footer = document.querySelector('.footer');
-var utils_1 = require("./utils");
 var isOpen;
 // Reviews
 var reviews = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: enums_1.LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: enums_1.LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: enums_1.LoyaltyUser.SILVER_USER,
         date: '27-03-2021'
     },
 ];
-// User
 var you = {
     firstName: 'Bobby',
     lastName: 'Brown',
+    permissions: enums_1.Permissions.ADMIN,
     isReturning: true,
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
@@ -88,5 +89,5 @@ for (var i = 0; i < properties.length; i++) {
     card.appendChild(image);
     propertyContainer.appendChild(card);
 }
-var currentLocation;
-footer.innerHTML = currentLocation;
+var currentLocation = ['Johanesburg', '11:35', 25];
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';

@@ -1,6 +1,5 @@
 {
   "name": "project",
-  "dependencies": {},
   "devDependencies": {
     "webpack": "^2.0",
     "ts-loader": "*",
@@ -9,5 +8,11 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w"
-  }
+  },
+  "version": "1.0.0",
+  "description": "## Challenge Overview",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
